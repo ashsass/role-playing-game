@@ -8,3 +8,4 @@
 4. Update the renderCharacter() function so that it accepts a single object "data" as its parameter instead of five string/numbers, reducing the number of arguments to pass in from five to one.
     - Update the template now each variable is coming from "data"
     - Update the function call.
+5. Deconstruct the object
