@@ -1,22 +1,34 @@
-//Render the hero and orc card html through JavaScript instead of hard coding in HTML
-document.querySelector('#hero').innerHTML = `
+//Hero object
+const hero = {
+   id: "hero",
+   name: "Wizard",
+   src: "images/wizard.png",
+   health: 60,
+   diceScore: 6
+}
+
+//Monster object
+const monster = {
+   id: "monster",
+   name: "Orc",
+   src: "images/orc.png",
+   health: 10,
+   diceScore: 4
+}
+
+function renderCharacter(data) {
+   return document.getElementById(data.id).innerHTML = `
    <div class="character-card">
-      <h4 class="name"> Wizard </h4>
-      <img class="avatar" src="images/wizard.png"/>
-      <p class="health">health: <b> 60 </b></p>
+      <h4 class="name"> ${data.name} </h4>
+      <img class="avatar" src="${data.src}"/>
+      <p class="health">health: <b> ${data.health} </b></p>
       <div class="dice-container">
-         <div class="dice"> 6 </div>
+         <div class="dice"> ${data.diceScore} </div>
       </div>
    </div>  
 `
+}
 
-document.querySelector('#monster').innerHTML = `  
-   <div class="character-card">
-      <h4 class="name"> Orc </h4>
-      <img class="avatar" src="images/orc.png"/>
-      <p class="health">health: <b> 10 </b></p>
-      <div class="dice-container">
-         <div class="dice"> 4 </div>
-      </div>
-   </div>
-`
+//Render the hero and orc card html through JavaScript instead of hard coding in HTML
+renderCharacter(hero)
+renderCharacter(monster)
