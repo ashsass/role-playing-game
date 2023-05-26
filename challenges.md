@@ -14,3 +14,4 @@
     - Each dice should have the following HTML: <div class="dice">6</div>
     - For now, each dice will display 6
     - Swap out the diceRoll variable for diceHtml in the template
+7. Have the dice count reflect the array 
