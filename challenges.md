@@ -9,3 +9,8 @@
     - Update the template now each variable is coming from "data"
     - Update the function call.
 5. Deconstruct the object
+6. Declare a let called diceHtml and initialize it with an empty string. 
+    - Use a for loop to update diceHtml so that it contains the HTML for our dice. The number of dice needed is specificed in the diceCount property of the objects.
+    - Each dice should have the following HTML: <div class="dice">6</div>
+    - For now, each dice will display 6
+    - Swap out the diceRoll variable for diceHtml in the template
