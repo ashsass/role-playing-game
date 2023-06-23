@@ -23,3 +23,7 @@
     - Think about the parameters and arguments!
     - Down in renderCharacter(), set diceHtml equals to our new getDiceHtml function. Remember to give it the argument it needs. 
     - Delete any code we no longer need.
+10.  Instead of the for loop, use an Array constructor to create a new array which is diceCount length.
+    - Fill the new array with zeros as its initial state
+    - Map over the new array directly (no need to declare a new variable) and return a random number from 1-6 in each element.
+    -  Delete all unnecessary code.
