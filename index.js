@@ -4,7 +4,6 @@ const hero = {
    name: "Wizard",
    src: "images/wizard.png",
    health: 60,
-   diceScore: [3, 1, 4],
    diceCount: 3
 }
 
@@ -14,16 +13,27 @@ const monster = {
    name: "Orc",
    src: "images/orc.png",
    health: 10,
-   diceScore: [2],
    diceCount: 1
 }
 
+function getDiceRollArray(count) {
+   let diceRollArray = []
+   for(let i = 0; i < count; i ++) {
+      diceRollArray.push(Math.floor(Math.random() * 6) + 1)
+   }
+   return diceRollArray
+}
+
+function getDiceHtml(count) {
+   return getDiceRollArray(count).map(function(num){
+      return `<div class="dice">${num}</div>`
+   }).join(" ")
+}
+
 function renderCharacter(data) {
-   const { id, name, src, health, diceScore, diceCount } = data
+   const { id, name, src, health, diceCount } = data
    
-   const diceHtml = diceScore.map(dice => {
-      return `<div class="dice"> ${dice} </div>`
-   }).join(' ')
+   const diceHtml = getDiceHtml(diceCount)
    
 
    return document.getElementById(id).innerHTML = `

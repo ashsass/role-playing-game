@@ -15,3 +15,11 @@
     - For now, each dice will display 6
     - Swap out the diceRoll variable for diceHtml in the template
 7. Have the dice count reflect the array 
+8. Create a function called getDiceRollArray that uses a for loop to return an array of random numbers between 1-6.
+    - The function should have diceCount as a parameter and the array it returns should be diceCount length. 
+    - For testing purposes, call the function with a diceCount of 3 and log out the result. 
+9. Create a function called getDiceHtml. 
+    - getDiceHtml should map over the array of dice rolls returned from getDiceRollArray to generate the html we need to render our dice with random values. This is the HTML: `<div class="dice">DICE VALUE HERE</div>`
+    - Think about the parameters and arguments!
+    - Down in renderCharacter(), set diceHtml equals to our new getDiceHtml function. Remember to give it the argument it needs. 
+    - Delete any code we no longer need.
