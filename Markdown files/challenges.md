@@ -1,5 +1,5 @@
 # Challenges from the Scrimba site
-
+## Part One
 1. Take the hard-coded HTML for the Wizard card, bring it into index.js and then inject it back into its div with JavaScript.
 2. Do the same for Orc card. 
 3. Strip out the hero and monster data (element id, name, avatar, health and dice score) and store them in variables
@@ -27,3 +27,21 @@
     - Fill the new array with zeros as its initial state
     - Map over the new array directly (no need to declare a new variable) and return a random number from 1-6 in each element.
     -  Delete all unnecessary code.
+PART ONE COMPLETE
+
+## Part Two: 
+1. Create a new constructor function called Character which takes our data as a paramenter.
+    - Set up "this" for each of the 5 properties in our objects (eg: this.health = data.health).
+2. Create a method called getCharacterHtml that performs the same tasks as our current renderCharacter function.
+    - Create two new instances of Character. One for a hero, called "wizard", and one for a monster, called "orc". Render both of them on the page.
+    - Delete both the old renderCharacter function and the two lines of code at the bottom of the page which invoke that function.
+3. Use Object.assign to refactor the Constructor code  
+4. Move getDiceHtml to the constructor as a method
+    - Instead of setting the innerHTML from right here in the contructor,make it so that we just return that literal string of HTML
+    - This will break the app. Don't worry!
+    - Now fix the issue
+    - Create a render() function to consolidate calling document.innerHTML
+5. Create a new const called characterData and set it equals to an object which holds both our hero and monster objects
+    - Think about how we access the data from our new object when we set up new characters down at the very bottom of the app. 
+    - See if you can work out what needs to change there to keep the app working.
+6. Add separate files to split up all of the code. 
