@@ -14,6 +14,8 @@ function render() {
 function attack() {
    orc.getDiceHtml()
    wizard.getDiceHtml()
+   orc.takeDamage(wizard.currentDiceScore)
+   wizard.takeDamage(orc.currentDiceScore)
    render()
 }
 

@@ -4,8 +4,8 @@ import { getDicePlaceholderHtml, getDiceRollArray } from './utils.js'
 function Character(data) {
     Object.assign(this, data)
 
-
     this.diceArray = getDicePlaceholderHtml(this.diceCount)
+
     this.getDiceHtml = function() {
          this.currentDiceScore = getDiceRollArray(this.diceCount)
          this.diceArray = this.currentDiceScore.map(function(num) {
@@ -13,6 +13,7 @@ function Character(data) {
          }).join('')
 
       }
+
     this.getCharacterHtml = function() {
        const { name, src, health, diceCount, diceArray } = this
        return `
@@ -25,6 +26,12 @@ function Character(data) {
           </div>
        </div>  
       `} 
+
+      this.takeDamage = function(currentDiceScore) {
+         console.log(`${this.name} is damaged`)
+         const totalAttackScore = currentDiceScore.reduce((a,b) => a + b)
+         this.health -= totalAttackScore
+      }
    }
 
 export default Character

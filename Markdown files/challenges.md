@@ -65,3 +65,12 @@ PART ONE COMPLETE
     - Rewrite the getDiceHtml method so it updates currentDiceScore with the values returned by getDiceRollArray.
 6. In the getDiceHtml method, map over currentDiceScore to return this string of html template for each element: <div class="dice">${num}</div>`. Save this new array to diceArray.
     - Modify the attack() function in index.js to get our app working again.
+7. Ceate a new method inside Character called "takeDamage"
+    - For now, have the method log out the name of the damaged character and phrase "is damaged".
+    - In index.js, find the attack() function and call takeDamage for each character inside that function. 
+    - Think what data we need to pass to our new takeDamage method.
+    - Add that data as an argument each time we call takeDamage below.
+    - In the takeDamage method, take in the data as a parameter called 'attackScoreArray' and log it out.
+    - In the takeDamage method, use what you have just learned to reduce attackScoreArray to a single number.
+    - Store that number in a const called totalAttackScore
+    - Decrement the health score by totalAttackScore
