@@ -11,3 +11,8 @@ function render() {
 }
 
 
+function attack() {
+   render()
+}
+
+document.getElementById("attack-button").addEventListener("click", attack)

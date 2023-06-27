@@ -45,3 +45,19 @@ PART ONE COMPLETE
     - Think about how we access the data from our new object when we set up new characters down at the very bottom of the app. 
     - See if you can work out what needs to change there to keep the app working.
 6. Add separate files to split up all of the code. 
+
+## Part Three
+1. Set up a function called attack()
+    - Wire up the attack button so when pressed, the function logs out 'attack button working!'
+    - Do this without declaring any new variables
+2. Make the attack button trigger a dice roll for both wizard and orc (which method on the constructor does that??)
+    - Make sure the new dice score shows in the app
+3. Create a new function called getDicePlaceholderHtml.
+    - Make getDicePlaceholderHtml return a new array of diceCount length.
+    - Each element of the array should include this line of HTML: `<div class="placeholder-dice"></div>`
+    - Remember to deal with the commas!
+    - Think: Where should this function live??
+4. In the Character constructor, create a new property called "diceArray".
+    - Set diceArray equal to whatever is returned by the getDicePlaceholderHtml function (think what two things you need to do to make this work!!).
+    - Instead of rendering diceHtml in the getCharacterHtml method, render diceArray.
+    - Delete any unnecessary code.

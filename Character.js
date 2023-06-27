@@ -1,16 +1,17 @@
 
-import { getDiceRollArray } from './utils.js'
+import { getDicePlaceholderHtml, getDiceRollArray } from './utils.js'
 
 function Character(data) {
     Object.assign(this, data)
+
     this.getDiceHtml = function(count) {
        return getDiceRollArray(count).map(function(num){
           return `<div class="dice">${num}</div>`
        }).join(" ")
-    }
+      }
     this.getCharacterHtml = function() {
-       const { name, src, health, diceCount } = this
-       const diceHtml = this.getDiceHtml(diceCount)
+       const { name, src, health } = this
+       const diceHtml = this.diceArray()
        return `
        <div class="character-card">
           <h4 class="name"> ${name} </h4>
@@ -20,8 +21,11 @@ function Character(data) {
              ${diceHtml}
           </div>
        </div>  
-    `
-    }
- }
+      `} 
+    this.diceArray = function() { 
+      const { diceCount } = this
+      return getDicePlaceholderHtml(diceCount).join('')
+      }
+   }
 
 export default Character
