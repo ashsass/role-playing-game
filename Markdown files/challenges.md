@@ -61,3 +61,7 @@ PART ONE COMPLETE
     - Set diceArray equal to whatever is returned by the getDicePlaceholderHtml function (think what two things you need to do to make this work!!).
     - Instead of rendering diceHtml in the getCharacterHtml method, render diceArray.
     - Delete any unnecessary code.
+5. Add a new property called currentDiceScore to each character's data and initialise it to an empty array.
+    - Rewrite the getDiceHtml method so it updates currentDiceScore with the values returned by getDiceRollArray.
+6. In the getDiceHtml method, map over currentDiceScore to return this string of html template for each element: <div class="dice">${num}</div>`. Save this new array to diceArray.
+    - Modify the attack() function in index.js to get our app working again.

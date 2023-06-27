@@ -4,14 +4,16 @@ const characterData = {
        name: "Wizard",
        src: "images/wizard.png",
        health: 60,
-       diceCount: 3
+       diceCount: 3,
+       currentDiceScore: []
     },
     monster: {
        id: "monster",
        name: "Orc",
        src: "images/orc.png",
        health: 10,
-       diceCount: 1
+       diceCount: 1,
+       currentDiceScore: []
     }
  }
 
