@@ -3,15 +3,14 @@ import Character from './Character.js'
 
 const wizard = new Character(characterData.hero)
 const orc = new Character(characterData.monster)
-render()
 
-function render() {
+const render = () => {
    document.getElementById(orc.id).innerHTML = orc.getCharacterHtml()
    document.getElementById(wizard.id).innerHTML = wizard.getCharacterHtml()
 }
+render()
 
-
-function attack() {
+const attack = () => {
    orc.getDiceHtml()
    wizard.getDiceHtml()
    orc.takeDamage(wizard.currentDiceScore)
@@ -22,7 +21,8 @@ function attack() {
    }
 }
 
-function endGame() {
+
+const endGame = () => {
    const endMessage = orc.isDead && wizard.isDead ? "No victors - all creatures are dead" : wizard.isDead ? 'The Orc is Victorious' : 'The Wizard Wins'
 
    const endEmoji = wizard.health > 0 ? "🔮" : "☠️"

@@ -85,9 +85,28 @@ PART ONE COMPLETE
 9. endGame() part 2 - Create a second const in endGame called endEmoji
     - Figure out how to set it to hold the emoji "🔮" if the wizard wins, and "☠️" if the orc wins. If both characters are dead use "☠️".
     - Finally, take the html template string below render it to the screen so it replaces everything else when the game is over.
-    <!-- `<div class="end-game">
+     `<div class="end-game">
         <h2>Game Over</h2>
         <h3>${endMessage}/h3>
         <p class="end-emoji">${endEmoji}</p>
-    </div>` -->
-10. 
+    </div>` 
+    
+10. Refactor code to arrow functions
+11. Health bar Create a property called maxHealth INSIDE Character that 
+stores the maximum health a character can have.
+- Create an arrow function called getPercentage OUTSIDE Character which takes two parameters, remainingHealth and maximumHealth. getPercentage should return the % of maximumHealth that is remaining.
+    - To test, call getPercentage from within the takeDamage method and log out the result. 
+    - Set up a new method called getHealthBarHtml: Create a const called "percent" and set it equals to the returned value from our getPercentage function (think what arguments you want to pass in).
+    - For now, just log out the value of the new const "percent".
+    - Down in the getCharacterHtml method, set up a const called healthBar and set it equal to the returned value of the getHealthBarHtml method.
+    - Instead of just logging the percent, getHealthBarHtml needs to return this string of html:
+        `<div class="health-bar-outer">
+            <div class="health-bar-inner *YOUR CODE HERE* " 
+                style="width: *YOUR CODE HERE* %;">
+            </div>
+        </div>`
+    - You need to make some changes to that string of HTML.
+        - If the amount of health left is 25% or lower, add the class "danger" to the div with the class "health-bar-inner".
+        - The width of that div should be the % health remaining. 
+    - Be sure to add the healthBar variable to the string of HTML rendered by getCharacterHtml.
+12. Move getPerecentage out of the Character file.
