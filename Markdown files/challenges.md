@@ -74,3 +74,20 @@ PART ONE COMPLETE
     - In the takeDamage method, use what you have just learned to reduce attackScoreArray to a single number.
     - Store that number in a const called totalAttackScore
     - Decrement the health score by totalAttackScore
+8. Add code to takeDamage so that when the character reaches zero heath, they stay at zero health and don't drop below zero.
+    - Add a line of code inside the body of the if statement in the takeDamage method which will give the character a new boolean "dead" when health reaches zero. It can be initialised with "true".
+    - For now, log out that boolean when the character's health reaches zero.
+    - Inside attack(), check if either character is dead.If they are, call a new function called endGame().
+    - Set up the new function endGame() and have it log out "the game is over".
+    - Inside endGame(), create a const called endMessage. 
+    - Figure out how to set endMessage to say either "The Wizard Wins", "The Orc is Victorious", or "No victors - all creatures are dead", depending on the health scores of the characters.
+    - Log out endMessage
+9. endGame() part 2 - Create a second const in endGame called endEmoji
+    - Figure out how to set it to hold the emoji "🔮" if the wizard wins, and "☠️" if the orc wins. If both characters are dead use "☠️".
+    - Finally, take the html template string below render it to the screen so it replaces everything else when the game is over.
+    <!-- `<div class="end-game">
+        <h2>Game Over</h2>
+        <h3>${endMessage}/h3>
+        <p class="end-emoji">${endEmoji}</p>
+    </div>` -->
+10. 
