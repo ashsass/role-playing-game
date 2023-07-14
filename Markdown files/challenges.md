@@ -113,19 +113,13 @@ stores the maximum health a character can have.
 13. New Monsters: Create a function called getNewMonster.
     - Write logic inside the function that takes the first monster from monstersArray and extracts that monster's data from characterData.
     - Save that data to a new const called nextMonsterData.
-    Make it so getNewMonster returns a new instance of Character. Think
-what argument you should be passing. If there are no more monsters in the 
-array, getNewMonster should return an empty object {}.
-2. Down near the bottom of the file, set a new variable "monster" equal 
-to our new function getNewMonster.
-3. Delete any code we no longer need.
-- The app will still be broken - don't worry for now!
-- Change the attack function so that when a monster dies, 
-the next monster replaces it. If there are no more monsters,
-call endGame(). 
-2. Make sure that endGame() still gets called if the wizard
-is killed.
-- Disable the user's ability to attack when a monster dies.
-2. Reneable the user's ability to attack when a new monster
-loads.
-3. When the game is over, disable the user's ability to attack.
+    - Make it so getNewMonster returns a new instance of Character. Think what argument you should be passing. If there are no more monsters in the array, getNewMonster should return an empty object {}.
+    - Down near the bottom of the file, set a new variable "monster" equal to our new function getNewMonster.
+    - Delete any code we no longer need. The app will still be broken - don't worry for now!
+14. Change the attack function so that when a monster dies, the next monster replaces it. If there are no more monsters, call endGame(). 
+    - Make sure that endGame() still gets called if the wizard is killed.
+    - Disable the user's ability to attack when a monster dies.
+    - Reneable the user's ability to attack when a new monster loads.
+15. When the game is over, disable the user's ability to attack.
+16. Clean up code
+## Done!
