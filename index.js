@@ -10,8 +10,8 @@ const getNewMonster = () => {
 }
 
 const attack = () => {
-   monster.getDiceHtml()
-   wizard.getDiceHtml()
+   monster.setDiceHtml()
+   wizard.setDiceHtml()
    monster.takeDamage(wizard.currentDiceScore)
    wizard.takeDamage(monster.currentDiceScore)
    render()
