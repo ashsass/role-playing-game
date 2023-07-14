@@ -122,4 +122,9 @@ stores the maximum health a character can have.
     - Reneable the user's ability to attack when a new monster loads.
 15. When the game is over, disable the user's ability to attack.
 16. Clean up code
-## Done!
+
+## Part 4
+1. Convert the constructor function to a class.
+    - Think about:
+        - Where do properties go?
+        - Where do Methods go?

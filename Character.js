@@ -1,51 +1,52 @@
 
 import { getDicePlaceholderHtml, getDiceRollArray, getPercentage } from './utils.js'
 
-function Character(data) {
-    Object.assign(this, data)
+class Character {
+   constructor(data) {
+      Object.assign(this, data)
+      this.maxHealth = this.health
+      this.diceHtml = getDicePlaceholderHtml(this.diceCount)
+   }
 
-    this.maxHealth = this.health
+   setDiceHtml = () => {
+      this.currentDiceScore = getDiceRollArray(this.diceCount)
+      this.diceHtml = this.currentDiceScore.map(num => `<div class="dice">${num}</div>`).join('')
+   }
 
-    this.diceHtml = getDicePlaceholderHtml(this.diceCount)
+   getHealthBarHtml = () => {
+      const percent = getPercentage(this.health, this.maxHealth)
+      return `<div class="health-bar-outer">
+                  <div class="health-bar-inner ${percent < 26 ? "danger" : ""} " 
+                     style="width: ${percent}%;">
+                  </div>
+               </div>`
+   }
 
-    this.setDiceHtml = () => {
-         this.currentDiceScore = getDiceRollArray(this.diceCount)
-         this.diceHtml = this.currentDiceScore.map(num => `<div class="dice">${num}</div>`).join('')
+   getCharacterHtml = () => {
+      const healthBar = this.getHealthBarHtml()
+      const { name, src, health, diceHtml } = this
+      return `
+      <div class="character-card">
+         <h4 class="name"> ${name} </h4>
+         <img class="avatar" src="${src}"/>
+         <p class="health">health: <b> ${health} </b></p>
+         ${healthBar}
+         <div class="dice-container">
+            ${diceHtml}
+         </div>
+      </div>  
+     `} 
+
+   takeDamage = currentDiceScore => {
+      const totalAttackScore = currentDiceScore.reduce((a,b) => a + b)
+      this.health -= totalAttackScore
+      if(this.health<=0){
+         this.isDead = true
+         this.health = 0
       }
+      getPercentage(this.health, this.maxHealth)
+   }
 
-      this.getHealthBarHtml = () => {
-         const percent = getPercentage(this.health, this.maxHealth)
-         return `<div class="health-bar-outer">
-                     <div class="health-bar-inner ${percent < 26 ? "danger" : ""} " 
-                        style="width: ${percent}%;">
-                     </div>
-                  </div>`
-      }
-
-      this.getCharacterHtml = () => {
-         const healthBar = this.getHealthBarHtml()
-         const { name, src, health, diceHtml } = this
-         return `
-         <div class="character-card">
-            <h4 class="name"> ${name} </h4>
-            <img class="avatar" src="${src}"/>
-            <p class="health">health: <b> ${health} </b></p>
-            ${healthBar}
-            <div class="dice-container">
-               ${diceHtml}
-            </div>
-         </div>  
-        `} 
-
-      this.takeDamage = currentDiceScore => {
-         const totalAttackScore = currentDiceScore.reduce((a,b) => a + b)
-         this.health -= totalAttackScore
-         if(this.health<=0){
-            this.isDead = true
-            this.health = 0
-         }
-         getPercentage(this.health, this.maxHealth)
-      }
 }
 
 export default Character
