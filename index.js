@@ -1,29 +1,27 @@
 import characterData from './data.js'
 import Character from './Character.js'
 
-const wizard = new Character(characterData.hero)
-const orc = new Character(characterData.monster)
+let monstersArray = ["orc", "demon", "goblin"]
 
-const render = () => {
-   document.getElementById(orc.id).innerHTML = orc.getCharacterHtml()
-   document.getElementById(wizard.id).innerHTML = wizard.getCharacterHtml()
+const getNewMonster = () => {
+   const nextMonsterData = characterData[monstersArray.shift()]
+   return nextMonsterData ? new Character(nextMonsterData) : {}
 }
-render()
 
 const attack = () => {
-   orc.getDiceHtml()
+   monster.getDiceHtml()
    wizard.getDiceHtml()
-   orc.takeDamage(wizard.currentDiceScore)
-   wizard.takeDamage(orc.currentDiceScore)
+   monster.takeDamage(wizard.currentDiceScore)
+   wizard.takeDamage(monster.currentDiceScore)
    render()
-   if(orc.isDead || wizard.isDead){
-      endGame()
+   if(monster.isDead){
+      monster = getNewMonster()
+      render()
    }
 }
 
-
 const endGame = () => {
-   const endMessage = orc.isDead && wizard.isDead ? "No victors - all creatures are dead" : wizard.isDead ? 'The Orc is Victorious' : 'The Wizard Wins'
+   const endMessage = monster.isDead && wizard.isDead ? "No victors - all creatures are dead" : wizard.isDead ? `The ${monster.name} is Victorious` : 'The Wizard Wins'
 
    const endEmoji = wizard.health > 0 ? "🔮" : "☠️"
 
@@ -36,3 +34,13 @@ const endGame = () => {
 }
 
 document.getElementById("attack-button").addEventListener("click", attack)
+
+const wizard = new Character(characterData.hero)
+let monster = getNewMonster()
+
+const render = () => {
+   document.getElementById('monster').innerHTML = monster.getCharacterHtml()
+   document.getElementById('hero').innerHTML = wizard.getCharacterHtml()
+}
+
+render()

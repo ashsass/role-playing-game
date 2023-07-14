@@ -110,3 +110,18 @@ stores the maximum health a character can have.
         - The width of that div should be the % health remaining. 
     - Be sure to add the healthBar variable to the string of HTML rendered by getCharacterHtml.
 12. Move getPerecentage out of the Character file.
+13. New Monsters: Create a function called getNewMonster.
+    - Write logic inside the function that takes the first monster from monstersArray and extracts that monster's data from characterData.
+    - Save that data to a new const called nextMonsterData.
+    Make it so getNewMonster returns a new instance of Character. Think
+what argument you should be passing. If there are no more monsters in the 
+array, getNewMonster should return an empty object {}.
+2. Down near the bottom of the file, set a new variable "monster" equal 
+to our new function getNewMonster.
+3. Delete any code we no longer need.
+- The app will still be broken - don't worry for now!
+- Change the attack function so that when a monster dies, 
+the next monster replaces it. If there are no more monsters,
+call endGame(). 
+2. Make sure that endGame() still gets called if the wizard
+is killed.
