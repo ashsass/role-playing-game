@@ -24,7 +24,7 @@ function Character(data) {
 
       this.getCharacterHtml = () => {
          const healthBar = this.getHealthBarHtml()
-         const { name, src, health, diceCount, diceArray } = this
+         const { name, src, health, diceArray } = this
          return `
          <div class="character-card">
             <h4 class="name"> ${name} </h4>
@@ -46,9 +46,6 @@ function Character(data) {
          }
          getPercentage(this.health, this.maxHealth)
       }
-   }
-
-   
-
+}
 
 export default Character

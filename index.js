@@ -2,6 +2,7 @@ import characterData from './data.js'
 import Character from './Character.js'
 
 let monstersArray = ["orc", "demon", "goblin"]
+const attackBtn = document.getElementById("attack-button")
 
 const getNewMonster = () => {
    const nextMonsterData = characterData[monstersArray.shift()]
@@ -14,9 +15,20 @@ const attack = () => {
    monster.takeDamage(wizard.currentDiceScore)
    wizard.takeDamage(monster.currentDiceScore)
    render()
-   if(monster.isDead){
-      monster = getNewMonster()
-      render()
+   if(wizard.isDead){
+      endGame()
+   }else if(monster.isDead){
+      if(monstersArray.length > 0){
+         attackBtn.removeEventListener("click", attack)
+            setTimeout(()=>{
+                monster = getNewMonster()
+                attackBtn.addEventListener("click", attack)
+                render()
+            },1500)
+      }else {
+         attackBtn.removeEventListener("click", attack)
+         setTimeout(endGame, 1500)
+      }
    }
 }
 
@@ -33,7 +45,7 @@ const endGame = () => {
       </div>`
 }
 
-document.getElementById("attack-button").addEventListener("click", attack)
+attackBtn.addEventListener("click", attack)
 
 const wizard = new Character(characterData.hero)
 let monster = getNewMonster()

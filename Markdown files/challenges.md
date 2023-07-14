@@ -125,3 +125,7 @@ the next monster replaces it. If there are no more monsters,
 call endGame(). 
 2. Make sure that endGame() still gets called if the wizard
 is killed.
+- Disable the user's ability to attack when a monster dies.
+2. Reneable the user's ability to attack when a new monster
+loads.
+3. When the game is over, disable the user's ability to attack.
